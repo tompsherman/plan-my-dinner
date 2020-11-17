@@ -21,4 +21,12 @@ router.get('/', (req,res)=>{
     )
  })
 
+router.post('/', (req,res)=>{
+    const fridgeData = req.body 
+    Fridge.create(fridgeData)
+    .then(food => {
+        res.status(201).json(food)
+    })
+    .catch(error => res.status(500).json({message: `${error.message}; ${error.stack}`}))
+ })
 module.exports = router

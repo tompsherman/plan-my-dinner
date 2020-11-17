@@ -20,4 +20,11 @@ router.get('/', (req,res)=>{
         .json({message: `${error.message}; ${error.stack}`}))
  })
 
+ router.post('/', (req,res)=>{ 
+     const dinnerData = req.body
+     Dinners.create(dinnerData)
+     .then(dinner => res.status(201).json(dinner))
+     .catch(error => res.status(500).json({message: `${error.message}; ${error.stack}`}))
+  })
+
 module.exports = router
