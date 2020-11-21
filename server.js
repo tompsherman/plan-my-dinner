@@ -5,6 +5,7 @@ const cors = require('cors')
 require('colors')
 
 const dinnerRouter = require('./dinner/dinnerRouters')
+const sideRouter = require('./sides/sidesRouters')
 const fridgeRouter = require('./fridge/fridgeRouters')
 
 const server = express()
@@ -15,6 +16,7 @@ server.use(cors())
 server.use(express.json())
 
 server.use('/api/dinners', dinnerRouter)
+server.use('/api/sides', sideRouter)
 server.use('/api/fridge', fridgeRouter)
 
 module.exports = server
